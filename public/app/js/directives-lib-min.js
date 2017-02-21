@@ -1,0 +1,2 @@
+/*! contactapp 2017-01-31 */
+function myDirectives(){var self=this;var directives={};self.directives=function(){return{restrict:"AE",scope:{},link:function(scope,element,attr,contacts){element.innerText("huh")}}};return directives}

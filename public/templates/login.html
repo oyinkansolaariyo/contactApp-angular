@@ -1,0 +1,73 @@
+<div class="row mt80" ng-controller="userCtrl as userActions">
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+
+
+        <h2 class="title text-center">LOGIN</h2>
+        <span ng-if="userActions.errors_login != ''">
+                 <p style="color: red">{{userActions.errors_login}}</p>
+            </span>
+        <form  name="userlogin" ng-submit="userActions.loginUser(userActions.newUser)">
+            <div class="form-group">
+                <label for="number">Phone number:
+                <span ng-show="userlogin.$submitted || userlogin.number.$touched">
+                      <span ng-show="userlogin.number.$error.required">Your number cannot  be empty</span></span></label>
+                <br>
+                <input type="number" class="form-control" id="number" name="number" placeholder="phone number" ng-model="userActions.userLogin.phone_number" required="required">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:
+                <span ng-show="userlogin.$submitted || userlogin.password.$touched">
+                      <span ng-show="userlogin.password.$error.required">Your Password cannot  be empty</span></span></label>
+                <br>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password" ng-model="userActions.userLogin.password" required="required">
+            </div>
+
+            <div class="text-center">
+                <button data-loading-text="Checking User..." type="submit" class="btn btn-save btn-primary" >Login</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-xs-8 col-sm-4 col-md-4 col-md-offset-3 col-lg-4">
+        <h2 class="title text-center">SIGN-UP</h2>
+        <span ng-if="userActions.errors_register != ''">
+                 <p style="color: red">{{userActions.errors_register}}</p>
+            </span>
+
+        <span ng-if="userActions.notice != ''">
+                <p style="color: yellow">{{userActions.notice}}</p>
+            </span>
+        <form  name="userForm" ng-submit="userActions.createUser()">
+            <div class="form-group">
+                <label for="name">Name:
+                    <span ng-show="userForm.$submitted || userForm.name.$touched">
+                      <span ng-show="userForm.name.$error.required">Your name cannot  be empty</span></span></label>
+                <br>
+                <input type="text" class="form-control" id="name" name="name" placeholder=" Your Name" ng-model="userActions.newUser.user_name" required="required">
+            </div>
+            <div class="form-group">
+                <label for="phone-number">Phone number:
+                    <span ng-show="userForm.$submitted || userForm.number.$touched">
+                      <span ng-show="userForm.number.$error.required">Your number cannot  be empty</span></span></label>
+                <br>
+                <input type="number" class="form-control" id="phone-number" name="number" placeholder="phone number" ng-model="userActions.newUser.phone_number" required="required">
+            </div>
+            <div class="form-group">
+                <label for="user-password">Password:
+                    <span ng-show="userForm.$submitted || userForm.password.$touched">
+                      <span ng-show="userForm.password.$error.required">You have to enter a password</span></span></label>
+                <br>
+                <input type="password" class="form-control" id="user-password" name="password" placeholder="Password" ng-model="userActions.newUser.password" required="required">
+            </div>
+            <div class="form-group">
+                <label for="address">Address:<span ng-show="userForm.$submitted || userForm.address.$touched">
+                      <span ng-show="userForm.address.$error.required">Please fill in a address</span></span></label>
+                <br>
+                <input type="text" class="form-control" id="address" name="address" placeholder="Your address" ng-model="userActions.newUser.address" required="required">
+            </div>
+
+            <div class="text-center">
+                <button data-loading-text="Saving User..." type="submit" class="btn btn-save btn-primary">Add User</button>
+            </div>
+        </form>
+    </div>
+</div>
